@@ -193,13 +193,13 @@ class App extends Component {
 					event.preventDefault()
 					  //some functin
 				  }}>
-				<div class="form-group">
+				<div class="form-group mt-4 pt-2">
 					<label>Test Data : &nbsp;</label> 
 					<input type="text" class="w-50 " 
 					ref={(input) => { this.tname = input }} />
 				</div>
 								
-				<button type="submit" className="btn btn-default text-light" style={{'backgroundColor': '#04d6b1'}}>
+				<button type="submit" className="ml-5  btn btn-default text-light" style={{'backgroundColor': '#04d6b1'}}>
 					Run</button>
 			  </form>
 			  
@@ -212,7 +212,7 @@ class App extends Component {
           <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
             <h1 class="h2">Graph</h1>
           </div>
-          <div>
+          <div class="container-fluid">
             <CanvasJSChart style={{ 'min-width' : '100%'}} options = {optionsGraph} 
 			onRef={ref => this.chart = ref}/>
           </div>
