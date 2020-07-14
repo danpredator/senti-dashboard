@@ -175,21 +175,22 @@ class App extends Component {
         </nav>
 
         <main className="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
             <h1 class="h2">Pie Chart</h1>
           </div>
-          <div>
-            <CanvasJSChart options = {optionsPie} />
+          <div class="container-fluid">
+            <CanvasJSChart style={{ 'min-width' : '100%'}} options = {optionsPie} />
           </div>
           <br/>
           <br/>
 
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
             <h1 class="h2">Form</h1>
           </div>
 		  <div class="container text-center">
 			  <form class="px-3 py-2" 
 			  	onSubmit={(event) => {
+					event.preventDefault()
 					  //some functin
 				  }}>
 				<div class="form-group">
@@ -208,17 +209,17 @@ class App extends Component {
 		  <br/>
           <br/>
 
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
             <h1 class="h2">Graph</h1>
           </div>
           <div>
-            <CanvasJSChart options = {optionsGraph} 
+            <CanvasJSChart style={{ 'min-width' : '100%'}} options = {optionsGraph} 
 			onRef={ref => this.chart = ref}/>
           </div>
 		  <br/>
           <br/>
 
-		  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
             <h1 class="h2">Conclusion</h1>
           </div>
 		  <div class="container">
