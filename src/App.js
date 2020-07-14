@@ -4,6 +4,20 @@ import './App.css';
 import {CanvasJSChart} from 'canvasjs-react-charts'
 
 class App extends Component {
+	constructor() {
+		super();
+		this.toggleDataSeries = this.toggleDataSeries.bind(this);
+	}
+	
+	toggleDataSeries(e){
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+			e.dataSeries.visible = false;
+		}
+		else{
+			e.dataSeries.visible = true;
+		}
+		this.chart.render();
+	}
   render() {
     const optionsPie = {
 			exportEnabled: true,
@@ -44,10 +58,15 @@ class App extends Component {
 				//prefix: "W",
 				interval: 2
 			},
+			legend: {
+				cursor: "pointer",
+				itemclick: this.toggleDataSeries
+			},
 			data: [{
 				type: "line",
 				toolTipContent: "Date {x}: Actual  Value {y}",
 				name: "Actual  Value",
+				axisYType: "primary",
 				showInLegend: true,
 				dataPoints: [{x: new Date(2020,4,19),y:-27.273},{x: new Date(2020,4,20),y:154.944},
 							 {x: new Date(2020,4,21),y:165.089},{x: new Date(2020,4,22),y:130.557},
@@ -172,7 +191,8 @@ class App extends Component {
           </div>
 
           <div>
-            <CanvasJSChart options = {optionsGraph} />
+            <CanvasJSChart options = {optionsGraph} 
+			onRef={ref => this.chart = ref}/>
           </div>
 
 
