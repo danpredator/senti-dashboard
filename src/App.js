@@ -7,8 +7,12 @@ class App extends Component {
 	constructor() {
 		super();
 		this.toggleDataSeries = this.toggleDataSeries.bind(this);
+		this.scrolltolabel = this.scrolltolabel.bind(this);
 	}
-	
+	scrolltolabel(s){
+		const anchor = document.querySelector(s)
+		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+	}
 	toggleDataSeries(e){
 		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
 			e.dataSeries.visible = false;
@@ -135,9 +139,13 @@ class App extends Component {
 
     return(
       <div>
-        <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
+		  
+        <nav className="d-flex justify-content-start flex-row navbar-header navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
+		<button hidden type="button" id="right-panel-link" class="btn btn-info shadow "
+            data-toggle="collapse" data-target="#modalLoginForm" 
+            >E</button>
           <span className="navbar-brand col-sm-3 col-md-2 mr-0" >Sentimental Analysis of COVID 19 Tweets</span>
-          <input className="form-control form-control-dark w-50 ml-4" type="text" placeholder="Search" aria-label="Search" />
+          <input hidden className="form-control form-control-dark w-50 ml-4" type="text" placeholder="Search" aria-label="Search" />
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap">
               
@@ -147,35 +155,51 @@ class App extends Component {
 
         <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar ">
-          <div class="sidebar-sticky font-italic font-weight-bold  " style={{ 'font-size' : '1.2rem'}}>
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar " id="modalLoginForm">
+          <div class="sidebar-sticky font-italic font-weight-bold  " >
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#pie')} >
                   Pie Chart 
-                </a>
+                </span>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#test')} >
                   Test
-                </a>
+                </span>
+              </li>
+			  <li class="nav-item">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#tweets')} >
+                  Tweets and Their Sentiments
+                </span>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#graph')} >
                   Graph
-                </a>
+                </span>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#con')} >
                   Conclusion
-                </a>
+                </span>
               </li>
             </ul>
           </div>
         </nav>
 
         <main className="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		    id="pie">
             <h1 class="h2">Pie Chart</h1>
           </div>
           <div class="container-fluid">
@@ -184,7 +208,8 @@ class App extends Component {
           <br/>
           <br/>
 
-          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		    id="test">
             <h1 class="h2">Form</h1>
           </div>
 		  <div class="container text-center">
@@ -204,12 +229,23 @@ class App extends Component {
 			  </form>
 			  
 			</div>
-		
-
 		  <br/>
           <br/>
 
-          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
+		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		   id="tweets">
+            <h1 class="h2">Tweets and Their Sentiments</h1>
+          </div>
+          <div class="container-fluid">
+            <p>text from python json</p>
+			<button type="button" class="btn shadow " style={{ 'backgroundColor' : '#d32e2e'}}
+			>Next</button>
+          </div>
+		  <br/>
+          <br/>
+
+          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		  	id="graph">
             <h1 class="h2">Graph</h1>
           </div>
           <div class="container-fluid">
@@ -219,7 +255,8 @@ class App extends Component {
 		  <br/>
           <br/>
 
-		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger">
+		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		  id="con">
             <h1 class="h2">Conclusion</h1>
           </div>
 		  <div class="container">
