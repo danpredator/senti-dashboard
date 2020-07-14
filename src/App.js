@@ -147,8 +147,8 @@ class App extends Component {
 
         <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar ">
+          <div class="sidebar-sticky font-italic font-weight-bold  " style={{ 'font-size' : '1.2rem'}}>
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="#">
@@ -178,22 +178,52 @@ class App extends Component {
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Pie Chart</h1>
           </div>
-
           <div>
             <CanvasJSChart options = {optionsPie} />
           </div>
           <br/>
           <br/>
 
-          
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Form</h1>
           </div>
+		  <div class="container text-center">
+			  <form class="px-3 py-2" 
+			  	onSubmit={(event) => {
+					  //some functin
+				  }}>
+				<div class="form-group">
+					<label>Test Data : &nbsp;</label> 
+					<input type="text" class="w-50 " 
+					ref={(input) => { this.tname = input }} />
+				</div>
+								
+				<button type="submit" className="btn btn-default text-light" style={{'backgroundColor': '#04d6b1'}}>
+					Run</button>
+			  </form>
+			  
+			</div>
+		
 
+		  <br/>
+          <br/>
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Graph</h1>
+          </div>
           <div>
             <CanvasJSChart options = {optionsGraph} 
 			onRef={ref => this.chart = ref}/>
           </div>
+		  <br/>
+          <br/>
+
+		  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Conclusion</h1>
+          </div>
+		  <div class="container">
+			  <p><em>Write Conclusion text heere</em> </p>
+		  </div>
 
 
           
