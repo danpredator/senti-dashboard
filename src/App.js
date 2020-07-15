@@ -73,7 +73,7 @@ class App extends Component {
 				axisYType: "primary",
 				showInLegend: true,
 				markerType: "circle",
-				legendText: "circle",
+				// legendText: "circle",
 				markerSize: 5,
 				dataPoints: [{x: new Date(2020,4,19),y:-27.273},{x: new Date(2020,4,20),y:154.944},
 							 {x: new Date(2020,4,21),y:165.089},{x: new Date(2020,4,22),y:130.557},
@@ -157,6 +157,7 @@ class App extends Component {
 				toolTipContent: "Date {x}: Actual  Value {y}",
 				name: 'Past data',
 				showInLegend: true,
+				
 				dataPoints: [{ x : new Date(2020,4,19), y : -27.273000 },{ x : new Date(2020,4,20), y : 154.944000 },
 					{ x : new Date(2020,4,21), y : 165.089000 },
 					{ x : new Date(2020,4,22), y : 130.557000 },
@@ -261,6 +262,7 @@ class App extends Component {
 				toolTipContent: "Date {x}: Predicted Value {y}",
 				name: "Predicted Value",
 				showInLegend: true,
+				markerSize: 5,
 				dataPoints: [{ x : new Date(2020,7,24), y : 132.355000 },
 					{ x : new Date(2020,7,25), y : 130.461000 },
 					{ x : new Date(2020,7,26), y : 128.158000 },
@@ -274,6 +276,7 @@ class App extends Component {
 				toolTipContent: "Date {x}: Predicted Value {y}",
 				name: 'Future prediction',
 				showInLegend: true,
+				markerSize: 5,
 				dataPoints: [{ x : new Date(2020,8,1), y : 127.508000 },
 					{ x : new Date(2020,8,2), y : 127.822000 },
 					{ x : new Date(2020,8,3), y : 128.114000 },
@@ -315,12 +318,8 @@ class App extends Component {
       <div>
 		  
         <nav className="d-flex justify-content-start flex-row navbar-header navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
-		<button hidden type="button" id="right-panel-link" class="btn btn-info shadow "
-            data-toggle="collapse" data-target="#modalLoginForm" 
-            >E</button>
-          <span className="navbar-brand col-sm-3 col-md-2 mr-0" >
+		  <span className="navbar-brand col-sm-3 col-md-2 mr-0" >
 			  Sentimental Analysis of COVID 19 Tweets - Visualization Dashboard</span>
-          <input hidden className="form-control form-control-dark w-50 ml-4" type="text" placeholder="Search" aria-label="Search" />
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap">
               
@@ -338,20 +337,6 @@ class App extends Component {
 				style={{'cursor':'pointer'}}  
 				  onClick={() => this.scrolltolabel('#pie')} >
                   Pie Chart 
-                </span>
-              </li>
-              <li class="nav-item">
-			  <span class="nav-link text-primary border-bottom border-dark" 
-				style={{'cursor':'pointer'}}  
-				  onClick={() => this.scrolltolabel('#test')} >
-                  Test
-                </span>
-              </li>
-			  <li class="nav-item">
-			  <span class="nav-link text-primary border-bottom border-dark" 
-				style={{'cursor':'pointer'}}  
-				  onClick={() => this.scrolltolabel('#tweets')} >
-                  Tweets and Their Sentiments
                 </span>
               </li>
               <li class="nav-item">
@@ -383,42 +368,7 @@ class App extends Component {
           <br/>
           <br/>
 
-          <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
-		    id="test">
-            <h1 class="h2">Form</h1>
-          </div>
-		  <div class="container text-center">
-			  <form class="px-3 py-2" 
-			  	onSubmit={(event) => {
-					event.preventDefault()
-					  //some functin
-				  }}>
-				<div class="form-group mt-4 pt-2">
-					<label>Test Data : &nbsp;</label> 
-					<input type="text" class="w-50 " 
-					ref={(input) => { this.tname = input }} />
-				</div>
-								
-				<button type="submit" className="ml-5  btn btn-default text-light" style={{'backgroundColor': '#04d6b1'}}>
-					Run</button>
-			  </form>
-			  
-			</div>
-		  <br/>
-          <br/>
-
-		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
-		   id="tweets">
-            <h1 class="h2">Tweets and Their Sentiments</h1>
-          </div>
-          <div class="container-fluid">
-            <p>text from python json</p>
-			<button type="button" class="btn shadow " style={{ 'backgroundColor' : '#d32e2e'}}
-			>Next</button>
-          </div>
-		  <br/>
-          <br/>
-
+          
           <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
 		  	id="graph">
             <h1 class="h2">Graph - Train Data</h1>
