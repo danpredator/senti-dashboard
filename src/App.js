@@ -72,6 +72,9 @@ class App extends Component {
 				name: "Actual  Value",
 				axisYType: "primary",
 				showInLegend: true,
+				markerType: "circle",
+				legendText: "circle",
+				markerSize: 5,
 				dataPoints: [{x: new Date(2020,4,19),y:-27.273},{x: new Date(2020,4,20),y:154.944},
 							 {x: new Date(2020,4,21),y:165.089},{x: new Date(2020,4,22),y:130.557},
 							 {x: new Date(2020,4,23),y:134.809},{x: new Date(2020,4,24),y:109.248},
@@ -123,15 +126,6 @@ class App extends Component {
 							 {x: new Date(2020,7,23), y: 3.731}
 							]
 				 
-			},
-			{
-				type: "line",
-				toolTipContent: "Date {x}: Predicted Value {y}",
-				name: "Predicted Value",
-				axisYType: "secondary",
-				showInLegend: true,
-				dataPoints: [{x: new Date(2020,4,21),y:18.3},{x: new Date(2020,4,22),y:13.9},
-							 {x: new Date(2020,4,23),y:9.6},{x: new Date(2020,4,24),y:100}]
 			}
 		]
 		}
