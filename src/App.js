@@ -6,6 +6,11 @@ import {CanvasJSChart} from 'canvasjs-react-charts'
 class App extends Component {
 	constructor() {
 		super();
+		this.state ={
+			records : [
+				{text:"Day 53 of our COVID19 selfisolation Todays portrait is from the fields across the Yamuna River facing the Taj Mahal in Agra India taken in 2015On one side of the Yamuna River sites the magnificent Taj Mahal ",sentiment:"Neutral sentiment"},{text:"#darwintheory #currentlyreading#covid19 #coronavirus#currentsituation#adaptability #change #brightfutureJAQK HolidaysGoa ",sentiment:"Positive sentiment"},{text:"Very Good Morning Corona Virus Advisory for my birder friends Please be inside your nests and dont fly aroundIts time to be a skulker and not a canaryIts time to become uncommon rather ",sentiment:"Negative sentiment"},{text:"#coronavirus #yoga2020 #saftyfirst #health #healthconcious #opengym #handwash #relaxAfter workout and yoga session ",sentiment:"Neutral sentiment"},{text:"#novel Corona COVID19 IS NOT SPREAD FROM DIRTTHE FRESH EVIDENCE OF THIS STATEMENT IS THAT COVID19 FOUND IN FAMOUS SINGER AND ACTRESSKANIKA KAPOOR SOI URGED TO ALL OUR COUNTRYMEN PLZ FOLLOW JANTA CURFEW ",sentiment:"Positive sentiment"},{text:"40 days of COVID19 lockdown ends today and we enter lockdown 30 with a fresh perspective of life and lots of hope Good Evening World#lockdown#goodevening #goodeveningworld #sunset #coronavirus #covid19 ",sentiment:"Positive sentiment"},{text:"Many jails are already suffering with Corona outbreaks with hundreds of patients At such times its important that prisoners from other jails are released on parole so that such a scenario can be avoided in other prisons #CoronaRiskInJail",sentiment:"Neutral sentiment"},{text:"Anki Group provides handy and safe packing and moving services during lockdownOur team follow all safety precaution during this CoVid19 pandemic Using MasksFrequently Sanitize Hands with SanitizerMaintain ",sentiment:"Neutral sentiment"},{text:" please take action otherwise we will die in new disease not corona ",sentiment:"Negative sentiment"},{text:"Good morning friends#RajGardenPlants #ROOKHRAJPAUDHSHALA#Rimjhim #RimjhimSolanki #daughter #beti #betibachaobetipadhao #RimjhimBaisaa #covid19 #corona #IndiaFightsCorona #stayhome #staysafe #family #savefamily",sentiment:"Positive sentiment"}
+			]
+		}
 		this.toggleDataSeries = this.toggleDataSeries.bind(this);
 		this.scrolltolabel = this.scrolltolabel.bind(this);
 	}
@@ -346,6 +351,13 @@ class App extends Component {
                   Graph
                 </span>
               </li>
+			  <li class="nav-item">
+			  <span class="nav-link text-primary border-bottom border-dark" 
+				style={{'cursor':'pointer'}}  
+				  onClick={() => this.scrolltolabel('#data')} >
+                  Data
+                </span>
+              </li>
               <li class="nav-item">
 			  <span class="nav-link text-primary border-bottom border-dark" 
 				style={{'cursor':'pointer'}}  
@@ -392,11 +404,38 @@ class App extends Component {
           <br/>
 
 		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
+		  	id="data">
+            <h1 class="h2">Data</h1>
+          </div>
+          <div class="container-fluid">
+		  <table class="table text-center " >
+			<thead class="thead-light">
+				<tr>
+				<th scope="col">Text</th>
+				<th scope="col">Sentiments</th>
+				</tr>
+			</thead>
+			<tbody>
+				{ this.state.records.map((record,key) => {
+					return(
+						<tr key={key}>
+							<td class="table-dark text-left small">{record.text}</td>
+							<td class="table-dark text-center small">{record.sentiment}</td>
+						</tr>
+					)
+				})}
+			</tbody>
+			</table>
+          </div>
+		  <br/>
+          <br/>
+
+		  <div class="container d-flex justify-content-between start flex-row align-items-center pb-2 mb-3 border-bottom border-danger"
 		  id="con">
             <h1 class="h2">Conclusion</h1>
           </div>
 		  <div class="container">
-			  <p><em>The above graph predicts sentiments of people in future dates if the lockdown is extended, where X axis represents the dates starting from 19 March until 31st July, and Y axis represents the sentimental values. We have taken the average of everyday tweets sentiments and multiplied it with 1000 in order to get maximum difference between corresponding points. The values till 23rd June are trained and are tested on data from June 23 to June 30 and the prediction has been extended till July 31st.
+			  <p class="h5"><em>The above graph predicts sentiments of people in future dates if the lockdown is extended, where X axis represents the dates starting from 19 March until 31st July, and Y axis represents the sentimental values. We have taken the average of everyday tweets sentiments and multiplied it with 1000 in order to get maximum difference between corresponding points. The values till 23rd June are trained and are tested on data from June 23 to June 30 and the prediction has been extended till July 31st.
 				From the pie chart it is observable that Positive Sentiments > Neutral Sentiments > Negative Sentiments and in the graph maximum of average sentiment values are between 50 and 175(0.05-0.175) and also the future predicted values are within the same range.
 				This gives a conclusion that if government decides to extend the lockdown there will be more positive sentiments and neutral sentiments due to the uncontrolled increase of number of patients effected due to corona, people think of protecting themselves so support the lockdown.
 				There might be some number of negative sentiments also with regards to increase in number of deaths and unemployment and lack of money due to no work indicating such situations.
