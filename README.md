@@ -2,7 +2,7 @@
 <br />
 
 Node red link: https://node-red-p1.eu-gb.mybluemix.net/ui/#!/0?socketid=kJzSr_8NBUp9zzrtAAAd  <br />
-React Link: http://18.221.23.183:3000/ <br />
+React Link: https://zerobugz.netlify.app/ <br />
 Video link: https://drive.google.com/file/d/154KTxcexIAQ0RV4-3q5ByeR2ckjDZ0MZ/view?usp=sharing <br />
 
 <br /><br />
